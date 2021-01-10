@@ -1,11 +1,15 @@
 <template>
     <div>
-        <b>Tthis is user's wall </b>
+        <i>Tthis is {{user}}' wall </i>
     </div>
 </template>
 
 <script>
 export default {
-    
+    data(){
+        return {
+            user: "Demo"
+        }
+    }
 }
 </script>
