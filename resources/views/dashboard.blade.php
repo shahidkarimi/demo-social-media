@@ -9,7 +9,7 @@
       <div class="col-md-9">
         <div class="card">
             <div class="card-body">
-                Start of something cool
+                <user-wall />
             </div>
         </div>
       </div>
