@@ -1,6 +1,7 @@
 window._ = require('lodash');
 import Vue from 'vue'
 import userWall from './components/UserWall';
+Vue.use(require('vue-moment'));
 
 Vue.component('user-wall', userWall);
 

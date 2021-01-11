@@ -7,11 +7,9 @@
         <a href="#">Home</a>
       </div>
       <div class="col-md-9">
-        <div class="card">
-            <div class="card-body">
-                <user-wall />
-            </div>
-        </div>
+        
+      <user-wall />
+
       </div>
     </div>
   </div>
