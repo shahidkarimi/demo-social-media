@@ -1,9 +1,11 @@
 window._ = require('lodash');
 import Vue from 'vue'
 import userWall from './components/UserWall';
+import followButton from './components/FollowButton';
 Vue.use(require('vue-moment'));
 
 Vue.component('user-wall', userWall);
+Vue.component('follow-button', followButton);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support

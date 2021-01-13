@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function post(Request $request)
+    public function post($userId, Request $request)
     {
         $post = new Post([
             'body' => $request->body,
-            'created_by' => \Auth::user()->id
+            'created_by' => !empty($userId) ? $userId : \Auth::user()->id
         ]);
         $post->save();
 
@@ -20,6 +20,11 @@ class PostController extends Controller
 
     public function index()
     {
-        return response()->json(Post::latest()->paginate(10));
+        return response()->json(Post::with('user')->latest()->paginate(10));
+    }
+
+    public function delete(Post $post)
+    {
+        $post->delete();
     }
 }

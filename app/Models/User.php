@@ -11,6 +11,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $appends = ['profileUrl'];
     /**
      * The attributes that are mass assignable.
      *
@@ -44,5 +45,26 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function getProfileUrlAttribute()
+    {
+        return route('user.profile', ['id' => $this->id, 'slug' => \Str::slug($this->name)]);
+    }
+
+    public function follow()
+    {
+        $follower = Follower::firstOrCreate([
+            'user_id' => $this->id,
+            'follower_id' => \Auth::user()->id
+        ]);
+
+        return 'unfollow';
+    }
+    public function unfollow()
+    {
+        $follower = Follower::where('follower_id', \Auth::user()->id)->first();
+        $follower->delete();
+        return 'follow';
     }
 }
