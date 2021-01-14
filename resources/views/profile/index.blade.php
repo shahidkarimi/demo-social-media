@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <a href="#">Home</a>
+        @include('layouts.sidebar')
       </div>
       <div class="col-md-9">
         
@@ -15,7 +15,9 @@
                         <h3>{{$user->name}}</h3>
                     </div>
                     <div class="col-md-3">
+                      @if($user->id != \Auth::user()->id)
                       <follow-button user-id="{{$user->id}}" />
+                      @endif
                     </div>
                 </div>
             </div>

@@ -4,12 +4,11 @@
 <div class="container">
     <div class="row">
       <div class="col-md-3">
-        <a href="#">Home</a>
+        @include('layouts.sidebar')
       </div>
-      <div class="col-md-9">
-        
-      <user-wall />
 
+      <div class="col-md-9">
+        <user-wall />
       </div>
     </div>
   </div>

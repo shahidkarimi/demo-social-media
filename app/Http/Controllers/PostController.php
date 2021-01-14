@@ -7,20 +7,25 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function post($userId, Request $request)
+    public function post(Request $request)
     {
         $post = new Post([
             'body' => $request->body,
-            'created_by' => !empty($userId) ? $userId : \Auth::user()->id
+            'created_by' => \Auth::user()->id
         ]);
         $post->save();
 
-        return response()->json($post);
+        return response()->json($post->load('user'));
     }
 
-    public function index()
+    public function index($id = null)
     {
-        return response()->json(Post::with('user')->latest()->paginate(10));
+        $post = Post::with('user')->when(!is_null($id), function($query) use($id){
+            return $query->where('created_by', $id);
+        })
+        ->latest()
+        ->paginate(10);
+        return response()->json($post);
     }
 
     public function delete(Post $post)
