@@ -31,11 +31,11 @@
         </div>
       </div>
     </div>
-    <div class="card-body">{{ post.body }}</div>
+    <div class="card-body feed-body"><a class="post-body" :href="post.postUrl">{{ post.body }}</a></div>
     <div class="card-footer">
       <div class="row">
         <div class="col-md-2">
-          <a href="#">Like</a>
+          <a href="#"><i class="fa fa-heart"></i></a>
         </div>
       </div>
     </div>
@@ -53,3 +53,15 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.post-body{
+  color: #000000;
+}
+.post-body:hover{
+  text-decoration: none;
+  color: #000000;
+}
+.feed-body:hover{
+  background-color: blue($color: #f4ebff);
+}
+</style>

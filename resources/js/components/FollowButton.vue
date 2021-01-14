@@ -1,5 +1,5 @@
 <template>
-  <button @click="followUnfollow" v-if="displayBtn" class="btn btn-primary">
+  <button @click="followUnfollow" v-if="displayBtn" class="btn btn-primary float-right">
     {{ displayText }}
   </button>
 </template>

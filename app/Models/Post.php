@@ -11,6 +11,8 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
+    protected $appends = ['postUrl'];
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
@@ -19,5 +21,10 @@ class Post extends Model
     public function user()
     {
         return $this->hasOne(User::class,'id','created_by');
+    }
+
+    public function getPostUrlAttribute()
+    {
+        return route('feed.show', ['id' => $this->id]);
     }
 }

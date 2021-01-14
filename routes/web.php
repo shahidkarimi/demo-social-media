@@ -34,4 +34,5 @@ Route::get('/follow-unfollow/{id}/{status}', [ProfileController::class, 'DoActio
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/post/{user_id?}', [PostController::class, 'index']);
 Route::post('/post', [PostController::class, 'post']);
+Route::get('/feed/{id}', [PostController::class, 'show'])->name('feed.show');
 Route::delete('/post/{post}', [PostController::class, 'delete']);
