@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Notifications\FollowNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notification;
 
 class User extends Authenticatable
 {
@@ -58,7 +60,7 @@ class User extends Authenticatable
             'user_id' => $this->id,
             'follower_id' => \Auth::user()->id
         ]);
-
+        $this->notify(new FollowNotification(\Auth::user()));
         return 'unfollow';
     }
     public function unfollow()

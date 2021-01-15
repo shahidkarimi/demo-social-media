@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,6 @@ Route::get('/post/{user_id?}', [PostController::class, 'index']);
 Route::post('/post', [PostController::class, 'post']);
 Route::get('/feed/{id}', [PostController::class, 'show'])->name('feed.show');
 Route::delete('/post/{post}', [PostController::class, 'delete']);
+
+//Notifications
+Route::get('notification', [NotificationController::class, 'index'])->name('notification.index');

@@ -43,6 +43,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{{ route('notification.index') }}" role="button" >
+                                <i class="fa fa-bell">
+                                    <span class="badge badge-danger">{{count(\Auth::user()->notifications)}}</span>
+                                </i>
+                            </a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
