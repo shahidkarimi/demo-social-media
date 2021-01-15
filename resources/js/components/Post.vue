@@ -9,7 +9,7 @@
           }}</span>
         </div>
         <div class="col-md-2 action-col float-right">
-          <div class="dropdown">
+          <div class="dropdown" v-if="user.id == post.created_by">
             <button
               class="btn dropdown-toggle btn-context"
               data-toggle="dropdown"
@@ -44,6 +44,11 @@
 <script>
 export default {
   props: ["post", "index"],
+  data(){
+    return {
+      user: userData
+    }
+  },
   methods: {
     deletePost(id, index) {
       axios.delete("/post/" + id).then((response) => {
