@@ -43,6 +43,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @if(\Auth::check())
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="{{ route('notification.index') }}" role="button" >
                                 <i class="fa fa-bell">
@@ -50,6 +51,7 @@
                                 </i>
                             </a>
                         </li>
+                        @endif
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

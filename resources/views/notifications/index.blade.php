@@ -7,9 +7,10 @@
         @include('layouts.sidebar')
       </div>
       <div class="col-md-9">
+          <h1>notifications</h1>
             <ul>
                 @foreach (\Auth::user()->notifications as $item)
-                    <li>{{$item->id}}</li>
+                    <li>{{$item->created_at}} {{$item->data['message']}}</li>
                 @endforeach
             </ul>
       </div>

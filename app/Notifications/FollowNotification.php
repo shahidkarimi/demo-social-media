@@ -59,7 +59,8 @@ class FollowNotification extends Notification
     {
         return [
             'follower' => $this->follower->name,
-            'followerUrl' => $this->follower->profileUrl
+            'followerUrl' => $this->follower->profileUrl,
+            'message' => "{$this->follower->name} is now Following you!"
         ];
     }
 }
