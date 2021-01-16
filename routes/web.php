@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -40,3 +41,8 @@ Route::delete('/post/{post}', [PostController::class, 'delete']);
 
 //Notifications
 Route::get('notification', [NotificationController::class, 'index'])->name('notification.index');
+
+
+//Like
+Route::post('/like/{type}/{id}/like', [LikeController::class, 'like']);
+Route::get('/like/{type}/{id}/count', [LikeController::class, 'count']);

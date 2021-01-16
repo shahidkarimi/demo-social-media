@@ -3,11 +3,13 @@ import Vue from 'vue'
 import userWall from './components/UserWall';
 import followButton from './components/FollowButton';
 import post from './components/Post';
+import likeBtn from './components/LikeButton';
 Vue.use(require('vue-moment'));
 
 Vue.component('user-wall', userWall);
 Vue.component('follow-button', followButton);
 Vue.component('post', post);
+Vue.component('like-button', likeBtn);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support

@@ -35,14 +35,16 @@
     <div class="card-footer">
       <div class="row">
         <div class="col-md-2">
-          <a href="#"><i class="fa fa-heart"></i></a>
+          <like-button type="post" :source_id="post.id" />
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import LikeButton from './LikeButton.vue';
 export default {
+  components: { LikeButton },
   props: ["post", "index"],
   data(){
     return {
